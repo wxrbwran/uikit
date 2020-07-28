@@ -3,9 +3,6 @@ import Button, { ButtonSize, ButtonType } from "./components/Button/button";
 import "./styles/index.scss";
 
 function App() {
-  const a = "123";
-  if (a === "123") {
-  }
   return (
     <div className="App">
       <header className="App-header">
