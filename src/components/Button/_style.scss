@@ -29,6 +29,9 @@
       pointer-events: none;
     }
   }
+  &:focus {
+    outline: 0;
+  }
 }
 
 .btn-lg {
