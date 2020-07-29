@@ -1,6 +1,7 @@
 import React from "react";
 import Button, { ButtonSize, ButtonType } from "./components/Button/button";
 import Menu from "./components/Menu/menu";
+import SubMenu from "./components/Menu/subMenu";
 import MenuItem from "./components/Menu/menuItem";
 
 import "./styles/index.scss";
@@ -36,19 +37,27 @@ function App() {
             console.log(index);
           }}
         >
-          <MenuItem index={0} disabled>
-            111
-          </MenuItem>
-          <MenuItem index={1}>222</MenuItem>
+          <MenuItem disabled>111</MenuItem>
+          <MenuItem>222</MenuItem>
+          <SubMenu title="dropdown">
+            <MenuItem>333</MenuItem>
+            <MenuItem>444</MenuItem>
+          </SubMenu>
         </Menu>
         <Menu
           onSelect={(index) => {
             console.log(index);
           }}
           mode="vertical"
+          defaultOpenSubMenus={["2"]}
         >
-          <MenuItem index={0}>111</MenuItem>
-          <MenuItem index={1}>222</MenuItem>
+          <MenuItem>111</MenuItem>
+          <MenuItem>222</MenuItem>
+          <SubMenu title="dropdown">
+            <MenuItem>333</MenuItem>
+            <MenuItem>444</MenuItem>
+          </SubMenu>
+          {/* <p>111</p> */}
         </Menu>
       </header>
     </div>
