@@ -88,7 +88,6 @@ describe("测试Menu 和 MenuItem 组件", () => {
     });
     fireEvent.click(wrapper.getByText("s1"));
     expect(testProps.onSelect).toHaveBeenCalledWith("3-0");
-    // expect(wrapper.queryByText("s1")).not.toBeVisible();
     fireEvent.mouseLeave(dropdownElement);
     await wait(() => {
       expect(wrapper.queryByText("s1")).not.toBeVisible();

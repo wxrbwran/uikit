@@ -3,9 +3,13 @@ import Button, { ButtonSize, ButtonType } from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import SubMenu from "./components/Menu/subMenu";
 import MenuItem from "./components/Menu/menuItem";
-
+import Icon from "./components/Icon/icon";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import "./styles/index.scss";
 
+library.add(fas);
 function App() {
   return (
     <div className="App">
@@ -59,6 +63,8 @@ function App() {
           </SubMenu>
           {/* <p>111</p> */}
         </Menu>
+        <FontAwesomeIcon icon="arrow-down" size="1x" />
+        <Icon icon="coffee" theme="danger"></Icon>
       </header>
     </div>
   );
