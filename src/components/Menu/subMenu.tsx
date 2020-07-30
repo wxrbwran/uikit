@@ -82,7 +82,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     return (
       <CSSTransition
         in={menuOpen}
-        timeout={500}
+        timeout={300}
         classNames="zoom-in-top"
         appear
         unmountOnExit

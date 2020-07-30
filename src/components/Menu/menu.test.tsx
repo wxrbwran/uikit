@@ -80,7 +80,7 @@ describe("测试Menu 和 MenuItem 组件", () => {
     expect(testProps.onSelect).not.toHaveBeenCalledWith("2");
   });
   it("在SubMenu上hover时，显示dropdown menu", async () => {
-    expect(wrapper.queryByText("s1")).not.toBeVisible();
+    expect(wrapper.queryByText("s1")).toBeFalsy();
     const dropdownElement = wrapper.getByText("sub");
     fireEvent.mouseEnter(dropdownElement);
     await wait(() => {
@@ -90,7 +90,7 @@ describe("测试Menu 和 MenuItem 组件", () => {
     expect(testProps.onSelect).toHaveBeenCalledWith("3-0");
     fireEvent.mouseLeave(dropdownElement);
     await wait(() => {
-      expect(wrapper.queryByText("s1")).not.toBeVisible();
+      expect(wrapper.queryByText("s1")).toBeFalsy();
     });
   });
 
