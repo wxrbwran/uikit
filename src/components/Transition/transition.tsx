@@ -1,31 +1,32 @@
 import React from "react";
-import classnames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 
-type Animation =
+type AnimationName =
   | "zoom-in-top"
-  | "zoom-in-bottom"
   | "zoom-in-left"
+  | "zoom-in-bottom"
   | "zoom-in-right";
-interface TransitionProps extends CSSTransitionProps {
-  className?: string;
-  animation?: Animation;
-}
+
+type TransitionProps = CSSTransitionProps & {
+  animation?: AnimationName;
+  wrapper?: boolean;
+};
 
 const Transition: React.FC<TransitionProps> = (props) => {
-  const { className, children, animation, ...restProps } = props;
-  // const classes = classnames("xr-icon", className, {});
+  const { children, classNames, animation, wrapper, ...restProps } = props;
   return (
-    <CSSTransition className={className || animation} {...restProps}>
-      {children}
+    <CSSTransition
+      classNames={classNames ? classNames : animation}
+      {...restProps}
+    >
+      {wrapper ? <div>{children}</div> : children}
     </CSSTransition>
   );
 };
-
-Transition.displayName = "Transition";
 Transition.defaultProps = {
   unmountOnExit: true,
   appear: true,
 };
+
 export default Transition;

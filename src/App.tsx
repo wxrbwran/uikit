@@ -1,5 +1,6 @@
-import React from "react";
-import Button, { ButtonSize, ButtonType } from "./components/Button/button";
+import React, { useState } from "react";
+import Button from "./components/Button/button";
+import Transition from "./components/Transition/transition";
 import Menu from "./components/Menu/menu";
 import SubMenu from "./components/Menu/subMenu";
 import MenuItem from "./components/Menu/menuItem";
@@ -11,6 +12,7 @@ import "./styles/index.scss";
 
 library.add(fas);
 function App() {
+  const [show, setShow] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -26,9 +28,7 @@ function App() {
           hello
         </Button>
         <Button disabled>hello world</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
-          hello
-        </Button>
+
         <Button
           btnType={ButtonType.Link}
           target="_blank"
@@ -36,6 +36,26 @@ function App() {
         >
           baidu
         </Button> */}
+        <Button
+          btnType="primary"
+          size="lg"
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          toggle
+        </Button>
+        <Transition in={show} timeout={300} animation="zoom-in-left">
+          <div>
+            <div>show!</div>
+            <div>show!</div>
+            <div>show!</div>
+            <div>show!</div>
+            <div>show!</div>
+            <div>show!</div>
+            <div>show!</div>
+          </div>
+        </Transition>
         <Menu
           onSelect={(index) => {
             console.log(index);
