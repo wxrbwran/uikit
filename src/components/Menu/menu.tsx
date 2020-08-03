@@ -26,10 +26,10 @@ export const MenuContext = createContext<IMenuContext>({ index: "0" });
 /**
  * 为网站提供导航功能的菜单。支持横向纵向两种模式，支持下拉菜单。
  * ~~~js
- * import { Menu } from 'vikingship'
+ * import { Menu } from 'xr'
  * ~~~
  */
-export const Menu: FC<MenuProps> = (props) => {
+export const Menu: FC<MenuProps> = props => {
   const {
     className,
     mode,
@@ -37,12 +37,12 @@ export const Menu: FC<MenuProps> = (props) => {
     children,
     defaultIndex,
     onSelect,
-    defaultOpenSubMenus,
+    defaultOpenSubMenus
   } = props;
   const [currentActive, setActive] = useState(defaultIndex);
-  const classes = classNames("viking-menu", className, {
+  const classes = classNames("xr-menu", className, {
     "menu-vertical": mode === "vertical",
-    "menu-horizontal": mode !== "vertical",
+    "menu-horizontal": mode !== "vertical"
   });
   const handleClick = (index: string) => {
     setActive(index);
@@ -54,7 +54,7 @@ export const Menu: FC<MenuProps> = (props) => {
     index: currentActive ? currentActive : "0",
     onSelect: handleClick,
     mode,
-    defaultOpenSubMenus,
+    defaultOpenSubMenus
   };
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
@@ -64,7 +64,7 @@ export const Menu: FC<MenuProps> = (props) => {
       const { displayName } = childElement.type;
       if (displayName === "MenuItem" || displayName === "SubMenu") {
         return React.cloneElement(childElement, {
-          index: index.toString(),
+          index: index.toString()
         });
       } else {
         console.error(
@@ -84,7 +84,7 @@ export const Menu: FC<MenuProps> = (props) => {
 Menu.defaultProps = {
   defaultIndex: "0",
   mode: "horizontal",
-  defaultOpenSubMenus: [],
+  defaultOpenSubMenus: []
 };
 
 export default Menu;

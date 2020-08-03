@@ -14,7 +14,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
   index,
   title,
   children,
-  className,
+  className
 }) => {
   const context = useContext(MenuContext);
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
@@ -26,7 +26,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
   const classes = classNames("menu-item submenu-item", className, {
     "is-active": context.index === index,
     "is-opened": menuOpen,
-    "is-vertical": context.mode === "vertical",
+    "is-vertical": context.mode === "vertical"
   });
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
   const clickEvents =
     context.mode === "vertical"
       ? {
-          onClick: handleClick,
+          onClick: handleClick
         }
       : {};
   const hoverEvents =
@@ -54,18 +54,18 @@ const SubMenu: React.FC<SubMenuProps> = ({
           },
           onMouseLeave: (e: React.MouseEvent) => {
             handleMouse(e, false);
-          },
+          }
         }
       : {};
   const renderChildren = () => {
-    const subMenuClasses = classNames("viking-submenu", {
-      "menu-opened": menuOpen,
+    const subMenuClasses = classNames("xr-submenu", {
+      "menu-opened": menuOpen
     });
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
       if (childElement.type.displayName === "MenuItem") {
         return React.cloneElement(childElement, {
-          index: `${index}-${i}`,
+          index: `${index}-${i}`
         });
       } else {
         console.error(
