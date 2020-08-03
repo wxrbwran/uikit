@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
-import classnames from "classnames";
+import React from "react";
+import classNames from "classnames";
 import {
   FontAwesomeIcon,
-  FontAwesomeIconProps,
+  FontAwesomeIconProps
 } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fas);
 
 export type ThemeProps =
   | "primary"
@@ -18,16 +21,15 @@ export type ThemeProps =
 
 export interface IconProps extends FontAwesomeIconProps {
   theme?: ThemeProps;
-  className?: string;
 }
 
-const Icon: React.FC<IconProps> = (props) => {
-  const { theme, className, ...restPorps } = props;
-  const classes = classnames("xr-icon", className, {
-    [`icon-${theme}`]: theme,
+const Icon: React.FC<IconProps> = props => {
+  // icon-primary
+  const { className, theme, ...restProps } = props;
+  const classes = classNames("xr-icon", className, {
+    [`icon-${theme}`]: theme
   });
-  return <FontAwesomeIcon className={classes} {...restPorps} />;
+  return <FontAwesomeIcon className={classes} {...restProps} />;
 };
 
-Icon.displayName = "Icon";
 export default Icon;
