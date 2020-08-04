@@ -20,6 +20,12 @@ import Icon from "../Icon/icon";
 //   const newFile = new File([file], 'new_name.docx', {type: file.type})
 //   return Promise.resolve(newFile)
 // }
+
+export default {
+  title: "Upload",
+  component: Upload,
+  parameters: {}
+};
 export const SimpleUpload = () => {
   return (
     <Upload
@@ -38,4 +44,4 @@ export const SimpleUpload = () => {
   );
 };
 
-storiesOf("Upload component", module).add("Upload", SimpleUpload);
+// storiesOf("Upload component", module).add("Upload", SimpleUpload);
