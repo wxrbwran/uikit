@@ -6,4 +6,4 @@ cache:
     - node_modules
 env:
   - CI=true
-before_install: npm i -g yarn
+# before_install: npm i -g yarn
