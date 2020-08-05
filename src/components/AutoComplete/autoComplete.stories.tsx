@@ -61,8 +61,8 @@ export const SimpleComplete = () => {
   //     });
   // };
 
-  const renderOption = (item: DataSourceType) => {
-    const itemWithGithub = item as DataSourceType<GithubUserProps>;
+  const renderOption = (item: any) => {
+    const itemWithGithub = item as any;
     return (
       <>
         <h2>Name: {itemWithGithub.value}</h2>
@@ -74,10 +74,7 @@ export const SimpleComplete = () => {
     <AutoComplete
       fetchSuggestions={handleFetch}
       onSelect={action("selected")}
-      renderOption={renderOption}
+      // renderOption={renderOption}
     />
   );
 };
-
-// storiesOf('AutoComplete Component', module)
-//   .add('AutoComplete', SimpleComplete)
