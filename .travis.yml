@@ -9,3 +9,8 @@ env:
 # before_install: npm i -g yarn
 install:
   - yarn
+script:
+  - yarn test
+  - yarn build-storybook
+on:
+  branch: master
