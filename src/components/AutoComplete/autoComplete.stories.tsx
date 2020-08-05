@@ -1,5 +1,4 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { AutoComplete } from "./autoComplete";
 interface LakerPlayerProps {
@@ -17,20 +16,20 @@ export default {
   parameters: {}
 };
 export const SimpleComplete = () => {
-  const lakers = [
-    "bradley",
-    "pope",
-    "caruso",
-    "cook",
-    "cousins",
-    "james",
-    "AD",
-    "green",
-    "howard",
-    "kuzma",
-    "McGee",
-    "rando"
-  ];
+  // const lakers = [
+  //   "bradley",
+  //   "pope",
+  //   "caruso",
+  //   "cook",
+  //   "cousins",
+  //   "james",
+  //   "AD",
+  //   "green",
+  //   "howard",
+  //   "kuzma",
+  //   "McGee",
+  //   "rando"
+  // ];
   const lakersWithNumber = [
     { value: "bradley", number: 11 },
     { value: "pope", number: 1 },

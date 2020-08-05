@@ -1,6 +1,6 @@
 {
-  "name": "uikit",
-  "version": "0.1.0",
+  "name": "xr-uikit",
+  "version": "0.1.1",
   "private": false,
   "description": "ui library for react",
   "license": "MIT",
@@ -14,28 +14,25 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "axios": "^0.19.2",
-    "classnames": "^2.2.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-transition-group": "^4.4.1"
-  },
   "scripts": {
     "clean": "rimraf ./dist",
     "start": "react-scripts start",
+    "lint": "eslint --ext js,ts,tsx src",
     "build": "react-scripts build",
     "build-project": "yarn clean && yarn build-ts && yarn build-css",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "prepublish": "yarn build-project"
+    "prepublish": "yarn test:nowatch && yarn lint && yarn build-project"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:nowatch && yarn lint"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,14 +49,28 @@
       "last 1 safari version"
     ]
   },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "react-transition-group": "^4.4.1"
+  },
   "devDependencies": {
-    "fork-ts-checker-webpack-plugin": "^5.0.13",
-    "node-sass": "^4.14.1",
-    "react-scripts": "3.4.1",
-    "rimraf": "^3.0.2",
-    "ts-loader": "^8.0.2",
-    "typescript": "~3.7.2",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -69,16 +80,17 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.4.0",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-docs": "^5.3.19",
-    "@storybook/addon-info": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/addon-storysource": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^5.3.19",
     "@types/storybook__addon-info": "^5.2.1",
     "babel-loader": "^8.1.0",
-    "react-docgen-typescript-loader": "^3.7.2"
+    "fork-ts-checker-webpack-plugin": "^5.0.13",
+    "husky": "^4.2.5",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.2",
+    "typescript": "~3.7.2"
   }
 }
