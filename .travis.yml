@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directions:
+    - node_modules
+env:
+  - CI=true
+before_install: npm i -g yarn

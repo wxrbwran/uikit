@@ -27,7 +27,7 @@
     "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "prepublish": "yarn test:nowatch && yarn lint && yarn build-project"
+    "prepublishOnly": "yarn test:nowatch && yarn lint && yarn build-project"
   },
   "husky": {
     "hooks": {

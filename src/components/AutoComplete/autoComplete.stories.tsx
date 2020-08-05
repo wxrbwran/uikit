@@ -61,15 +61,15 @@ export const SimpleComplete = () => {
   //     });
   // };
 
-  const renderOption = (item: any) => {
-    const itemWithGithub = item as any;
-    return (
-      <>
-        <h2>Name: {itemWithGithub.value}</h2>
-        <p>url: {itemWithGithub.url}</p>
-      </>
-    );
-  };
+  // const renderOption = (item: any) => {
+  //   const itemWithGithub = item as any;
+  //   return (
+  //     <>
+  //       <h2>Name: {itemWithGithub.value}</h2>
+  //       <p>url: {itemWithGithub.url}</p>
+  //     </>
+  //   );
+  // };
   return (
     <AutoComplete
       fetchSuggestions={handleFetch}
