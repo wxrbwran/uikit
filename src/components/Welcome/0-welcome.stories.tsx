@@ -3,7 +3,7 @@ import React from "react";
 export const Welcome = () => {
   return (
     <>
-      <h1>welcome to xr-uikit</h1>
+      <h1>welcome to xr-uikit, writen by wuxiaoran</h1>
     </>
   );
 };

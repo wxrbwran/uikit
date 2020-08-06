@@ -74,6 +74,7 @@ export const SimpleComplete = () => {
     <AutoComplete
       fetchSuggestions={handleFetch}
       onSelect={action("selected")}
+      placeholder="自动填充组件"
       // renderOption={renderOption}
     />
   );
