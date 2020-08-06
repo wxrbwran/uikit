@@ -25,4 +25,4 @@ before_install:
   - git config --global user.name "wxrbwran"
   - git config --global user.email "wxrbw@qq.com"
 after_success:
-  - ssh ubuntu@123.206.90.112 -p 22 StrictHostKeyChecking=no 'cd /home/ubuntu/sites/uikit && yarn && yarn build-storybook'
+  - ssh ubuntu@123.206.90.112 -p 22 StrictHostKeyChecking=no 'cd /home/ubuntu/sites/uikit && git pull && yarn && yarn build-storybook'
