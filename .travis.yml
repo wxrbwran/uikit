@@ -14,6 +14,8 @@ script:
 true:
   branch: master
 before_install:
+  # - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+  #   -in id_rsa.enc -out id_rsa -d
   - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
     -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
@@ -24,11 +26,3 @@ before_install:
   - git config --global user.email "wxrbw@qq.com"
 after_success:
   - ssh ubuntu@123.206.90.112 -p 22 StrictHostKeyChecking=no 'cd /home/ubuntu/sites/uikit && yarn && yarn build-storybook'
-# deploy:
-#   provider: script
-#   # Do not delete the build assets
-#   skip_cleanup: true
-#   script: bash scripts/deploy.sh
-#   on:
-#     # 当 master 有 push 的时候，触发 deploy 操作
-#     branch: master

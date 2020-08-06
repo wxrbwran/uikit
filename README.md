@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 12
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -14,6 +15,8 @@ You will also see any lint errors in the console.
 
 ### `yarn test`
 
+openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+-in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
