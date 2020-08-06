@@ -11,8 +11,8 @@ chmod 600 ~/.ssh/id_rsa
 eval "$(ssh-agent -s)"
 
 ssh-add ~/.ssh/id_rsa
-
-cp ../.travis/ssh_config ~/.ssh/config
+# pwd
+cp .travis/ssh_config ~/.ssh/config
 
 # 删除解密后的私钥
 # rm deploy
