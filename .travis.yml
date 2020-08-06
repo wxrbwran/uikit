@@ -1,16 +1,32 @@
 language: node_js
 node_js:
-  - "stable"
+  - stable
 cache:
   directions:
     - node_modules
 env:
   - CI=true
-# before_install: npm i -g yarn
 install:
   - yarn
 script:
   - yarn test
   - yarn build-storybook
-on:
+true:
   branch: master
+before_install:
+  # - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+  #   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  # - chmod 600 ~/.ssh/id_rsa
+  # - eval $(ssh-agent)
+  # - ssh-add ~/.ssh/id_rsa
+  # - cp .travis/ssh_config ~/.ssh/config
+  # - git config --global user.name "wxrbwran"
+  # - git config --global user.email "wxrbw@qq.com"
+deploy:
+  provider: script
+  # Do not delete the build assets
+  skip_cleanup: true
+  script: bash scripts/deploy.sh
+  on:
+    # 当 master 有 push 的时候，触发 deploy 操作
+    branch: master
