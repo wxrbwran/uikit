@@ -23,4 +23,7 @@ before_install:
   - git config --global user.name "wxrbwran"
   - git config --global user.email "wxrbw@qq.com"
 after_success:
-  - ssh ubuntu@123.206.90.112 -p 22 'cd /home/ubuntu/sites/uikit && git pull && yarn && yarn build-storybook'
+  - ssh ubuntu@123.206.90.112 -p 22 'cd /home/ubuntu/sites/uikit
+    && git pull && yarn && yarn build-storybook && rm -rf /var/www/uikit
+    && mkdir /var/www/uikit
+    && cp -R ./storybook-static/* /var/www/uikit'
