@@ -2,7 +2,7 @@
 set -e
 
 # setup ssh-agent and provide the GitHub deploy key
-openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in ../.travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 
 # 对解密后的私钥添加权限
 chmod 600 ~/.ssh/id_rsa
