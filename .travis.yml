@@ -39,6 +39,5 @@ after_success:
     docker stop xr-uikit
     && docker rm xr-uikit
     && docker pull wxrbw/uikit:latest
-    && docker run -d --name uikit -p 8888:80 wxrbw/uikit
+    && docker run -d --name xr-uikit -p 8888:80 wxrbw/uikit
     '
-
