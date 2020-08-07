@@ -35,4 +35,10 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t wxrbw/uikit:latest .
   - docker push wxrbw/uikit:latest
+  - ssh ubuntu@123.206.90.112 '
+    docker stop xr-uikit
+    && docker rm xr-uikit
+    && docker pull wxrbw/uikit:latest
+    && docker run -d --name uikit -p 8888:80 wxrbw/uikit
+    '
 
