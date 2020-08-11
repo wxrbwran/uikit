@@ -37,6 +37,10 @@ export const Button: FC<ButtonProps> = props => {
     href,
     ...restProps
   } = props;
+  // const a = 2;
+  // if (a == 2) {
+  //   console.log(222);
+  // }
   const classes = classnames("btn", className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
