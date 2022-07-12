@@ -59,7 +59,9 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.21.2",
     "classnames": "^2.2.6",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "storybook": "^5",
+    "webpack": "4.42.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
@@ -81,7 +83,9 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.4.0",
     "@types/storybook__addon-info": "^5.2.1",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "8.1.0",
+    "babel-preset-react-app": "^10.0.1",
+    "cross-env": "^7.0.3",
     "fork-ts-checker-webpack-plugin": "^5.0.13",
     "husky": "^4.2.5",
     "node-sass": "^4.14.1",

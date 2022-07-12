@@ -3,18 +3,18 @@ import { render, fireEvent } from "@testing-library/react";
 import Button, { ButtonProps } from "./button";
 
 const defaultProps = {
-  onClick: jest.fn(),
+  onClick: jest.fn()
 };
 
 const testProps: ButtonProps = {
   btnType: "primary",
   size: "lg",
-  className: "klass",
+  className: "klass"
 };
 
 const disabledProps: ButtonProps = {
   disabled: true,
-  onClick: jest.fn(),
+  onClick: jest.fn()
 };
 
 describe("测试Button组件", () => {
@@ -51,7 +51,9 @@ describe("测试Button组件", () => {
     const wrapper = render(<Button {...disabledProps}>Nice</Button>);
     const element = wrapper.getByText("Nice") as HTMLButtonElement;
     expect(element).toBeInTheDocument();
-    expect(element.disabled).toBeTruthy();
+    expect(element).toMatchSnapshot();
+    // expect(element.disabled).toBeTruthy();
+    expect(element).toHaveAttribute("disabled");
     fireEvent.click(element);
     expect(disabledProps.onClick).not.toHaveBeenCalled();
   });

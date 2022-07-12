@@ -27,12 +27,15 @@ export const ButtonWithSize = () => (
 
 export const ButtonWithType = () => (
   <>
-    <Button onClick={action("clicked")}>Default</Button>
-    <Button onClick={action("clicked")} btnType="primary">
+    <Button onClick={action("Default")}>Default</Button>
+    <Button onClick={action("Primary")} btnType="primary">
       Primary
     </Button>
-    <Button onClick={action("clicked")} btnType="danger">
+    <Button onClick={action("Danger")} btnType="danger">
       Danger
+    </Button>
+    <Button onClick={action("Disabled")} disabled>
+      Disabled
     </Button>
     <Button
       onClick={action("clicked")}
