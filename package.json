@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test:nowatch && yarn lint"
+      "pre-commit": "pnpm test:nowatch && pnpm lint"
     }
   },
   "eslintConfig": {
